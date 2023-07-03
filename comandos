@@ -1,0 +1,44 @@
+No input colocar oque voce deseja incriptar 
+
+
+Encriptar
+
+python encripta.py public_key.txt input.txt encrypted.txt
+
+
+Descriptar 
+
+python decripta.py private_key.txt encrypted.txt decrypted.txt
+
+
+
+
+
+
+Referente ao trabalho
+
+
+Nomes: Diogo
+
+
+Planejamento e operação: como você organizou seu código? Que tipos de problemas você encontrou? Que linguagem utilizou e por quê?:
+
+Bom os codigos acimas sao bem facis de entender primeiro que um encripta o outro é que descripta tudo e um que gera as chaves .
+Problemas de pacote , na hora de vir os dados que pedi nao vinha no txt depois de encriptar .
+Python, pois eu uso no trabalho e tem uma amigo que me ajudou a configurar o codigo certinho
+
+
+
+Teste: Como você testou seu código? Que tipos de bugs você encontrou? O que funciona e o que não funciona? Há algum problema no código que você não conseguiu resolver?
+
+O teste é facil dois comandos que fazem isso sozinho gerando os resultados pedidos.
+Bugs de nao vir os dados encriptados 
+Muito erro no python de pasta vazia , porem com dados dentros
+Aparentemente está tudo funcional até o teste de hoje dia 29/06/2023
+NAO 
+
+
+Avalie o projeto: O que você aprendeu? Valeu a pena? Você pode incluir coisas que você aprendeu sobre a linguagem que escolheu, problemas do projeto, criptografia, etc.
+Eu aprendi como funciona de verdada a criptografia , como usar , mexer , contruir .
+Valeu muito a pena , achei interresantisso , muito legal de fazer .
+Bom fazer imports , fazer classes mais simples , arrumar bugs menores de erro .
