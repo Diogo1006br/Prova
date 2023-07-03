@@ -5,7 +5,7 @@ def decrypt_data(encoded_data, d, n):
     decrypted_data = []
 
     for chunk in encoded_data:
-        decrypted_chunk = pow(chunk, d, n)  # Calculate the decrypted chunk
+        decrypted_chunk = pow(chunk, d, n)  
         chunk_bytes = decrypted_chunk.to_bytes((decrypted_chunk.bit_length() + 7) // 8, 'big')
         chunk_str = chunk_bytes.decode()
         decrypted_data.append(chunk_str)

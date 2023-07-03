@@ -24,7 +24,7 @@ def calculate_public_key(phi):
             return e
 
 def calculate_private_key(e, phi):
-    d = pow(e, -1, phi)  # Calculate the modular inverse of e
+    d = pow(e, -1, phi) 
     return d
 
 def main():

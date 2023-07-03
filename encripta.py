@@ -3,12 +3,12 @@ from Crypto.Util import number
 
 def encrypt_data(data, e, n):
     encoded_data = []
-    chunk_size = number.size(n) // 8  # Determine the chunk size based on the size of n
+    chunk_size = number.size(n) 
 
     for i in range(0, len(data), chunk_size):
         chunk = data[i:i+chunk_size]
         chunk_int = int.from_bytes(chunk.encode(), 'big')
-        encoded_chunk = pow(chunk_int, e, n)  # Calculate the encrypted chunk
+        encoded_chunk = pow(chunk_int, e, n)  
         encoded_data.append(encoded_chunk)
 
     return encoded_data
