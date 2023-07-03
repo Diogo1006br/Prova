@@ -1,9 +1,9 @@
 import sys
-from Crypto.Util import number
+
 
 def encrypt_data(data, e, n):
     encoded_data = []
-    chunk_size = number.size(n) 
+    chunk_size = (n.bit_length() + 7) 
 
     for i in range(0, len(data), chunk_size):
         chunk = data[i:i+chunk_size]
@@ -12,6 +12,7 @@ def encrypt_data(data, e, n):
         encoded_data.append(encoded_chunk)
 
     return encoded_data
+
 
 def main():
     if len(sys.argv) != 4:
@@ -35,6 +36,7 @@ def main():
         file.write('\n'.join(map(str, encrypted_data)))
 
     print("Data encrypted successfully!")
+
 
 if __name__ == '__main__':
     main()

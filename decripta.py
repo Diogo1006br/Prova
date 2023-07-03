@@ -1,11 +1,11 @@
 import sys
-from Crypto.Util import number
+
 
 def decrypt_data(encoded_data, d, n):
     decrypted_data = []
 
     for chunk in encoded_data:
-        decrypted_chunk = pow(chunk, d, n)  
+        decrypted_chunk = pow(chunk, d, n)
         chunk_bytes = decrypted_chunk.to_bytes((decrypted_chunk.bit_length() + 7) // 8, 'big')
         chunk_str = chunk_bytes.decode()
         decrypted_data.append(chunk_str)
@@ -14,7 +14,7 @@ def decrypt_data(encoded_data, d, n):
 
 def main():
     if len(sys.argv) != 4:
-        print("Usage: python decripta.py <private_key_file> <input_file> <output_file>")
+        print("Usage: python decrypt.py <private_key_file> <input_file> <output_file>")
         return
 
     private_key_file = sys.argv[1]

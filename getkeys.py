@@ -1,7 +1,6 @@
-import sys
 import random
-from math import gcd
-from Crypto.Util import number
+import sys
+
 
 def get_prime_numbers(prime_file):
     primes = []
@@ -11,21 +10,40 @@ def get_prime_numbers(prime_file):
             primes.append(prime)
     return primes
 
+
 def calculate_n(p, q):
     return p * q
+
 
 def calculate_phi(p, q):
     return (p - 1) * (q - 1)
 
+
+def calculate_gcd(a, b):
+    while b:
+        a, b = b, a % b
+    return a
+
+
 def calculate_public_key(phi):
     while True:
         e = random.randint(2, phi)
-        if gcd(e, phi) == 1:
+        if calculate_gcd(e, phi) == 1:
             return e
 
-def calculate_private_key(e, phi):
-    d = pow(e, -1, phi) 
-    return d
+
+def calculate_extended_gcd(a, b):
+    if b == 0:
+        return a, 1, 0
+    else:
+        gcd, x, y = calculate_extended_gcd(b, a % b)
+        return gcd, y, x - (a // b) * y
+
+
+def calculate_modular_inverse(e, phi):
+    _, x, _ = calculate_extended_gcd(e, phi)
+    return x % phi
+
 
 def main():
     if len(sys.argv) != 4:
@@ -44,7 +62,7 @@ def main():
     n = calculate_n(p, q)
     phi = calculate_phi(p, q)
     e = calculate_public_key(phi)
-    d = calculate_private_key(e, phi)
+    d = calculate_modular_inverse(e, phi)
 
     with open(public_key_file, 'w') as file:
         file.write(f"{e}\n{n}")
@@ -53,6 +71,7 @@ def main():
         file.write(f"{d}\n{n}")
 
     print("Keys generated successfully!")
+
 
 if __name__ == '__main__':
     main()
